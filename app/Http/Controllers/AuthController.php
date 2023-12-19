@@ -30,9 +30,9 @@ class AuthController extends Controller
 
         return view('payment');
     }
-    public function shower() {
+    public function cat() {
 
-        return view('shower');
+        return view('cat');
     }
 
 

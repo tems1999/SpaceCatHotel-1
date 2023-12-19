@@ -22,4 +22,4 @@ Route::get('/register', "AuthController@register")->Name('register');
 Route::post('/register/store', "AuthController@RegisterStore")->Name('RegisterStore');
 Route::get('/room', "AuthController@room")->Name('room');
 Route::get('/payment', "AuthController@payment")->Name('payment');
-Route::get('/shower', "AuthController@shower")->Name('shower');
+Route::get('/cat', "AuthController@cat")->Name('cat');

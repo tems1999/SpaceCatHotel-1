@@ -63,7 +63,7 @@
                                                     <label for="email" class="block ml-2 text-sm font-medium text-gray-900 ">อีเมลล์</label>
                                                     <div class="p-2 rounded-xl border flex w-fit bg- bg-gray-100 shadow-md">
                                                         <img src="{{ URL('/picture/'.'email.png') }}" class="h-5 mt-[2px]"/>    
-                                                        <input class="ml-2  font-light  bg-gray-100"  type="email" name="email" placeholder="กรอกอีเมลล์">   
+                                                        <input class="ml-2  font-light  bg-gray-100 outline-none"  type="email" name="email" placeholder="กรอกอีเมลล์">   
                                                     </div>            
                                                 </div>
                                                 
@@ -71,7 +71,7 @@
                                                     <label for="password" class="ml-2 block text-sm font-medium text-gray-900 dark:text-white">รหัสผ่าน</label>
                                                     <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
                                                         <img src="{{ URL('/picture/'.'lock1.png') }}" class="h-6"/>    
-                                                        <input class="ml-2 bg-gray-100" type="password" name="password" placeholder="••••••••">   
+                                                        <input class="ml-2 bg-gray-100 outline-none" type="password" name="password" placeholder="••••••••">   
                                                     </div>   
                                                        
                                                 </div>
@@ -82,7 +82,7 @@
                                                     <label for="email" class="block ml-2 text-sm font-medium text-gray-900 ">ชื่อ</label>
                                                     <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
                                                         <img src="{{ URL('/picture/'.'user.png') }}" class="h-5"/>    
-                                                        <input class="ml-2 font-light bg-gray-100" type="name" name="_name" id="name" placeholder="กรอกชื่อผู้ใช้">   
+                                                        <input class="ml-2 font-light bg-gray-100 outline-none" type="name" name="_name" id="name" placeholder="กรอกชื่อผู้ใช้">   
                                                     </div>            
                                                 </div>
                                                 
@@ -90,7 +90,7 @@
                                                     <label for="password" class="ml-2 block text-sm font-medium text-gray-900 dark:text-white">นามสกุล</label>
                                                     <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
                                                         <img src="{{ URL('/picture/'.'detail.png') }}" class="h-6"/>    
-                                                        <input class="ml-2 font-light bg-gray-100" type="last_name" name="_lastname" id="lastname" placeholder="กรอกนามสกุล" >   
+                                                        <input class="ml-2 font-light bg-gray-100 outline-none" type="last_name" name="_lastname" id="lastname" placeholder="กรอกนามสกุล" >   
                                                     </div>   
                                                        
                                                 </div>
@@ -101,7 +101,7 @@
                                                     <label for="email" class="block ml-2 text-sm font-medium text-gray-900 ">เบอร์โทร</label>
                                                     <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
                                                         <img src="{{ URL('/picture/'.'tell.png') }}" class="h-5"/>    
-                                                        <input class="ml-2 font-light bg-gray-100" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone"  placeholder="กรอกเบอร์โทร">   
+                                                        <input class="ml-2 font-light bg-gray-100 outline-none" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone"  placeholder="กรอกเบอร์โทร">   
                                                     </div>            
                                                 </div>
                                                 
