@@ -20,3 +20,6 @@ Route::get('/home', "AuthController@Home")->Name('Home');
 Route::get('/login', "AuthController@login")->Name('login');
 Route::get('/register', "AuthController@register")->Name('register');
 Route::post('/register/store', "AuthController@RegisterStore")->Name('RegisterStore');
+Route::get('/room', "AuthController@room")->Name('room');
+Route::get('/payment', "AuthController@payment")->Name('payment');
+Route::get('/shower', "AuthController@shower")->Name('shower');

@@ -22,6 +22,19 @@ class AuthController extends Controller
 
         return view('register');
     }
+    public function room() {
+
+        return view('room');
+    }
+    public function payment() {
+
+        return view('payment');
+    }
+    public function shower() {
+
+        return view('shower');
+    }
+
 
     public function RegisterStore(Request $request) {
         $username = ($request->has('username')) ? trim($request->input('username')) : null;
