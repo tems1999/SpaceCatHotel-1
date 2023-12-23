@@ -12,8 +12,8 @@
     </head>
     <body>
         <!-- Nav Bar -->
-        <nav class="bg-white border-gray-200 dark:bg-gray-800">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between">
+        <nav class="bg-white border-gray-200 dark:bg-gray-800 ">
+            <div class="max-w-screen-xl-hidden flex flex-wrap items-center justify-between mr-[6em]">
                 <a class="flex items-center space-x-3 rtl:space-x-reverse">               
                     <img src="{{ URL('/picture/'.'cat.png') }}"class="h-20" alt="Flowbite Logo" />
                     <div class=" text-center " >
@@ -22,23 +22,32 @@
                     </div>
                 </a>
 
-                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+                <div class="hidden md:block md:w-auto flex  " id="navbar-default ">
+                    <ul class="font-medium flex flex-col md:p-2 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-2 md:border-0 md:bg-white">
                         <div class= " flex items-center ">
                             <img src="https://t.ly/T5_fM" class="h-5" alt="Flowbite Logo" />
                             <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">อาบน้ำตัดขน</a>
                         </div>
-                        <li>
-                            <button id="btnLogin" type="button" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">เข้าสู่ระบบ</button>
-                        </li>
-                        <li>
-                            <button id="btnRegister" type="button" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">สมัครสมาชิก  </button>
-                        </li>
+
+                        @if(Session::get('authen')) 
+                            <li>
+                                <p class="">Welcome - {{ Session::get('firstname') }}</p>
+                            </li>
+                            <li>
+                                <a href="{{ Route('Logout') }}">Logout</a>
+                            </li>
+                        @else
+                            <li>
+                                <button id="btnLogin" type="button" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">เข้าสู่ระบบ</button>
+                            </li>
+                            <li>
+                                <button id="btnRegister" type="button" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">สมัครสมาชิก  </button>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
         </nav>
-      
 
         <div">
             @yield('Content')
@@ -48,88 +57,69 @@
         <!-- Modal Register -->
         <div id="modalRegister" class="modal hidden fixed z-[120] pt-[100px] left-0 top-0 w-[100%] h-[100%] overflow-auto max-md:px-[10px]">
             <!-- Modal content -->
-                    <section>
-                            <div class="flex flex-col items-center justify-center ">
-                                <div class="w-fit bg-white rounded-lg px-[2em]">
-                                    <div class="px-7 py-4 md:space-y-6 max-sm:p-8 relative">
-                                        <!-- ปุ่มกากบาท -->
-                                        <span id="closeRegister" class=" text-gray-500 text-[30px] font-medium absolute top-0 right-0 mr- hover:text-indigo-600 cursor-pointer">&times;</span>
-                                            
-                                        <form class="space-y-4 mt-0" action="#">
-                                         <img src="{{ URL('/picture/'.'register.png') }}" class="h-[10em] mx-auto "/>
-                                            <!-- อีเมลล์&รหัสผ่าน -->
-                                            <div  class="flex gap-5">
-                                                <div>
-                                                    <label for="email" class="block ml-2 text-sm font-medium text-gray-900 ">อีเมลล์</label>
-                                                    <div class="p-2 rounded-xl border flex w-fit bg- bg-gray-100 shadow-md">
-                                                        <img src="{{ URL('/picture/'.'email.png') }}" class="h-5 mt-[2px]"/>    
-                                                        <input class="ml-2  font-light  bg-gray-100 outline-none"  type="email" name="email" placeholder="กรอกอีเมลล์">   
-                                                    </div>            
-                                                </div>
-                                                
-                                                <div>
-                                                    <label for="password" class="ml-2 block text-sm font-medium text-gray-900 dark:text-white">รหัสผ่าน</label>
-                                                    <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
-                                                        <img src="{{ URL('/picture/'.'lock1.png') }}" class="h-6"/>    
-                                                        <input class="ml-2 bg-gray-100 outline-none" type="password" name="password" placeholder="••••••••">   
-                                                    </div>   
-                                                       
-                                                </div>
+                <section>
+                    <div class="flex flex-col items-center justify-center ">
+                        <div class="w-fit bg-white rounded-lg px-[2em]">
+                            <div class="px-7 py-4 md:space-y-6 max-sm:p-8 relative">
+                                <!-- ปุ่มกากบาท -->
+                                <span id="closeRegister" class=" text-gray-500 text-[30px] font-medium absolute top-0 right-0 mr- hover:text-indigo-600 cursor-pointer">&times;</span>
+                                    
+                                <form class="space-y-4 mt-0" action="#!" method="post" onsubmit="return false;">
+                                    <img src="{{ URL('/picture/'.'register.png') }}" class="h-[10em] mx-auto "/>
+                                    <!-- อีเมลล์&รหัสผ่าน -->
+                                    <div  class="flex gap-5">
+                                        <div>
+                                            <label for="username_register" class="block ml-2 text-sm font-medium text-gray-900 ">ชื่อผู้ใช้</label>
+                                            <div class="p-2 rounded-xl border flex w-fit bg- bg-gray-100 shadow-md">
+                                                <img src="{{ URL('/picture/'.'email.png') }}" class="h-5 mt-[2px]"/>    
+                                                <input  id="username_register" class="ml-2  font-light  bg-gray-100 outline-none"  type="email"  placeholder="กรอกชื่อผู้ใช้">   
+                                            </div>            
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="password_register" class="ml-2 block text-sm font-medium text-gray-900 dark:text-white">รหัสผ่าน</label>
+                                            <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
+                                                <img src="{{ URL('/picture/'.'lock1.png') }}" class="h-6"/>    
+                                                <input id="password_register" class="ml-2 bg-gray-100 outline-none" type="password"  placeholder="••••••••">   
                                             </div>
-                                            <!-- ชื่อ&นามสกุล -->
-                                            <div  class="flex gap-5 ">
-                                                <div>
-                                                    <label for="email" class="block ml-2 text-sm font-medium text-gray-900 ">ชื่อ</label>
-                                                    <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
-                                                        <img src="{{ URL('/picture/'.'user.png') }}" class="h-5"/>    
-                                                        <input class="ml-2 font-light bg-gray-100 outline-none" type="name" name="_name" id="name" placeholder="กรอกชื่อผู้ใช้">   
-                                                    </div>            
-                                                </div>
-                                                
-                                                <div>
-                                                    <label for="password" class="ml-2 block text-sm font-medium text-gray-900 dark:text-white">นามสกุล</label>
-                                                    <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
-                                                        <img src="{{ URL('/picture/'.'detail.png') }}" class="h-6"/>    
-                                                        <input class="ml-2 font-light bg-gray-100 outline-none" type="last_name" name="_lastname" id="lastname" placeholder="กรอกนามสกุล" >   
-                                                    </div>   
-                                                       
-                                                </div>
-                                            </div>
-                                            <!-- เบอร์โทร&เพศ -->
-                                            <div  class="flex gap-5">
-                                                <div>
-                                                    <label for="email" class="block ml-2 text-sm font-medium text-gray-900 ">เบอร์โทร</label>
-                                                    <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
-                                                        <img src="{{ URL('/picture/'.'tell.png') }}" class="h-5"/>    
-                                                        <input class="ml-2 font-light bg-gray-100 outline-none" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone"  placeholder="กรอกเบอร์โทร">   
-                                                    </div>            
-                                                </div>
-                                                
-                                                <div>
-                                                    <label for="countries" class="block ml-3 text-sm font-medium text-gray-900 dark:text-white">เพศ</label>
-                                                    <select id="countries" class="bg-gray border bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 shadow-md">
-                                                    <option selected>กรุณาเลือก</option>
-                                                    <option value="US">ชาย </option>
-                                                    <option value="CA">หญิง</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-start">
-                                                <div class="flex items-center h-5">
-                                                    <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
-                                                </div>
-                                                <div class="ml-3 text-sm">
-                                                    <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
-                                                </div>
-                                            </div>
-                            
-
-                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">สมัครสมาชิก</button>
-                                        </form>
+                                        </div>
                                     </div>
-                                </div>
+                                    <!-- ชื่อ&นามสกุล -->
+                                    <div  class="flex gap-5 ">
+                                        <div>
+                                            <label for="firstname_register" class="block ml-2 text-sm font-medium text-gray-900 ">ชื่อ</label>
+                                            <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
+                                                <img src="{{ URL('/picture/'.'user.png') }}" class="h-5"/>    
+                                                <input id="firstname_register" class="ml-2 font-light bg-gray-100 outline-none" type="name"  placeholder="กรอกชื่อผู้ใช้">   
+                                            </div>            
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="lastname_register" class="ml-2 block text-sm font-medium text-gray-900 dark:text-white">นามสกุล</label>
+                                            <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
+                                                <img src="{{ URL('/picture/'.'detail.png') }}" class="h-6"/>    
+                                                <input  id="lastname_register" class="ml-2 font-light bg-gray-100 outline-none" type="last_name" placeholder="กรอกนามสกุล" >   
+                                            </div>   
+                                                
+                                        </div>
+                                    </div>
+                                    <!-- เบอร์โทร-->
+                                    <div  class="flex gap-5">
+                                        <div>
+                                            <label for="tell_register" class="block ml-2 text-sm font-medium text-gray-900 ">เบอร์โทร</label>
+                                            <div class="p-2 rounded-xl border flex w-fit bg-gray-100 shadow-md">
+                                                <img src="{{ URL('/picture/'.'tell.png') }}" class="h-5"/>    
+                                                <input id="tell_register" type="tel"  class="ml-2 font-light bg-gray-100 outline-none" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="กรอกเบอร์โทร">   
+                                            </div>            
+                                        </div>
+                                        
+                                    </div>
+                                    <button onClick="SubmitRegister()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">สมัครสมาชิก</button>
+                                </form>
                             </div>
-                        </section>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
            
@@ -143,16 +133,19 @@
                             <!-- form -->
                         <div class="md:w-1/2 px-5 md:px-16 relative">
                             <img src="{{ URL('/picture/'.'logo login.png') }}" class=" h-[10em] mx-auto"/>
-                            <form action="" class="flex flex-col gap-4">
-                                <input class="p-2 rounded-xl border" type="email" name="email" placeholder="Email">
+                            <form action="#!" method="post" onsubmit="return false;" class="flex flex-col gap-4">
+
+                                <input id="username_login" class="p-2 rounded-xl border" type="text" placeholder="Email">
                                 <div class="relative">
-                                <input class="p-2 rounded-xl border w-full" type="password" name="password" placeholder="Password">
+                                <input id="password_login" class="p-2 rounded-xl border w-full" type="password" placeholder="Password">
+
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2" viewBox="0 0 16 16">
                                     <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                     <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                 </svg>
                                 </div>
-                                <button class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">Login</button>
+
+                                <button onClick="LoginVerify()" class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">Login</button>
                             </form>
 
                             <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
@@ -181,10 +174,10 @@
                             </div>
                         </div>
                     
-                                <!-- image -->
-                                <div class="md:block hidden w-1/2">
-                                    <img src="{{ URL('/picture/'.'login p.png') }}"/>
-                                </div>  
+                        <!-- image -->
+                        <div class="md:block hidden w-1/2">
+                            <img src="{{ URL('/picture/'.'login p.png') }}"/>
+                        </div>  
                        
                     </div>
             </section>
@@ -235,68 +228,105 @@
                 });
             });
 
-            function RegisterProcess(){
-                const minimum_username_length = 4;
-                const minimum_password_length = 4;
-                if(
-                    ((document.getElementById("username_register").value).length >= minimum_username_length) && 
-                    ((document.getElementById("password_register").value).length >= minimum_password_length) && 
-                    document.getElementById("firstname_register").value != '' &&
-                    document.getElementById("lastname_register").value != '' &&
-                    document.getElementById("username_register").value.indexOf(' ') <= 0 && 
-                    document.getElementById("password_register").value.indexOf(' ') <= 0
-                ) {
-                    fetch("{{ Route('RegisterStore') }}", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json",
-                            "X-CSRF-Token": '{{csrf_token()}}'
-                        },
-                        body:JSON.stringify(
-                            {
-                                username: document.getElementById("username_register").value,
-                                password: document.getElementById("password_register").value,
-                                firstname: document.getElementById("firstname_register").value,
-                                lastname: document.getElementById("lastname_register").value
-                            }
-                        )
-                    })
-                    .then(async response => {
-                        const isJson = response.headers.get('content-type')?.includes('application/json');
-                        const data = isJson ? await response.json() : null; 
-
-                        if(!response.ok){
-                            const error = (data && data.errorMessage) || "{{trans('general.warning.system_failed')}}" + " (CODE:"+response.status+")";
-                            return Promise.reject(error);
+            function LoginVerify() {
+                fetch("{{ Route('LoginVerify') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-CSRF-Token": "{{ csrf_token() }}"
+                    },
+                    body:JSON.stringify(
+                        {
+                            username: document.getElementById("username_login").value,
+                            password: document.getElementById("password_login").value
                         }
+                    )
+                })
+                .then(async response => {
+                    const isJson = response.headers.get('content-type')?.includes('application/json');
+                    const data = isJson ? await response.json() : null; 
 
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: 'ลงทะเบียนสำเร็จ',
-                            timer: 1500,
-                            timerProgressBar: true
-                        }).then((result) => {
-                            window.location.reload();
-                        })
-                    }).catch((er) => {
-                        console.log('Error: ' + er);
+                    console.log(data);
+                    if(!response.ok){
                         Swal.fire({
                             position: 'center',
                             icon: 'error',
-                            title: 'ลงทำเบียนไม่สำเร็จ!',
-                            html: '<b class="text-rose-800">ชื่อผู้ใช้</b>นี้ถูกใช้ไปแล้ว'
+                            title: 'เข้าสู่ระบบไม่สำเร็จ!',
+                            html: `${data.status}`,
+                            confirmButtonText: 'ตกลง',
                         })
-                    });
-                } else {
+
+                        const error = (data && data.errorMessage) || "{{trans('general.warning.system_failed')}}" + " (CODE:"+response.status+")";
+                        return Promise.reject(error);
+                    }
+
                     Swal.fire({
-                        position: 'center',
-                        icon: 'error',
-                        title: 'ลงทำเบียนไม่สำเร็จ!',
-                        html: 'ความยาวของชื่อผู้ใช้และรหัสผ่าน<br>จะต้องมีอย่างน้อย <b class="text-rose-800">4</b> ตัวอักษร <b class="text-rose-800">และไม่มีช่องว่าง</b>'
+                            position: 'center',
+                            icon: 'success',
+                            title: 'เข้าสู่ระบบสำเร็๗',
+                            confirmButtonText: 'ตกลง',
+                            timer: 1000,
+                            timerProgressBar: true
+                    }).then((result) => {
+                        location.reload();
                     })
-                }
+                })
+                .catch((er) => {
+                    console.log('Error' + er);
+                });                    
+            }
+
+            function SubmitRegister() {
+                fetch("{{ Route('SubmitRegister') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-CSRF-Token": "{{ csrf_token() }}"
+                    },
+                    body:JSON.stringify(
+                        {
+                            username: document.getElementById("username_register").value,
+                            password: document.getElementById("password_register").value,
+                            firstname: document.getElementById("firstname_register").value,
+                            lastname: document.getElementById("lastname_register").value,
+                            tell: document.getElementById("tell_register").value,
+                        }
+                    )
+                })
+                .then(async response => {
+                    const isJson = response.headers.get('content-type')?.includes('application/json');
+                    const data = isJson ? await response.json() : null; 
+
+                    console.log(data);
+                    if(!response.ok){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'เพิ่มบัญชีไม่สำเร็จ!',
+                            html: `${data.status}`,
+                            confirmButtonText: 'ตกลง',
+                        })
+
+                        const error = (data && data.errorMessage) || "{{trans('general.warning.system_failed')}}" + " (CODE:"+response.status+")";
+                        return Promise.reject(error);
+                    }
+
+                    Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'เพิ่มบัญชีสำเร็จ',
+                            confirmButtonText: 'ตกลง',
+                            timer: 1000,
+                            timerProgressBar: true
+                    }).then((result) => {
+                        location.reload();
+                    })
+                })
+                .catch((er) => {
+                    console.log('Error' + er);
+                });                    
             }
         </script>
     </body>

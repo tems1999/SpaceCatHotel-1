@@ -17,7 +17,7 @@
         <!-- add_cat -->
             <div class=" items-center justify-center flex ">
                 <div class="mt-[8em] w-fit h-auto  bg-grey-lighter border-2 border-gray-300 border-dashed bg-gray-100 py-[2em] px-[10em] shadow-lg">
-                    <button id=" btn-profile-cat" type="button"  class="w-64 flex flex-col items-center px-4 py-6 bg-gray-300 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
+                    <button id="btn-profile-cat" type="button"  class="w-64 flex flex-col items-center px-4 py-6 bg-gray-300 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
                         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                         </svg>
@@ -27,12 +27,12 @@
             </div>
 
             <!-- start_modal_addcat -->
-            <div id="modal-Profile-cat" class="modal hidden fixed z-[100] flex my-auto left-0 top-0 w-[100%] h-[100%] overflow-auto  ">
+            <div id="modal-add-cat" class="modal hidden fixed z-[100] flex my-auto left-0 top-0 w-[100%] h-[100%] overflow-auto  ">
                 <div class="modal-content bg-white m-auto p-[10px] rounded-md drop-shadow-xl w-[65%] max-md:w-[100%] gap-2">
                     <span id="details-close" class="text-gray-500 text-[30px] font-medium absolute top-0 right-0 mr-4 hover:text-indigo-600 cursor-pointer">&times;</span>   
-
+                    <!-- รายละเอียดแมว -->
                     <div class="grid grid-cols-3 p-4">
-                        <div class="w-fit border border-red-300  ">
+                        <div class="w-fit ">
                             <p class="text-lg">รายละเอียดแมว</p>
                             <p class="text-gray-500 text-sm font-light">กรุณาเพิ่มรายระเอียดของแมวคุณ</p>
                         </div>
@@ -62,16 +62,16 @@
                                         <input class="ml-2 font-light bg-gray-100  "  type="name" name="name" placeholder="น้ำหนักแมวแมว">   
                                     </div>       
                                 </div>     
-                                <div class="ml-2">
+                                <div class="ml-[5.5em]">
                                     <label for="countries" class="block ml-3 text-sm font-medium text-gray-900 ">เพศ</label>
                                     <select id="countries" class="bg-gray border bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 shadow-md">
-                                    <option selected>กรุณาเลือก</option>
-                                    <option value="US">เพศผู้ </option>
-                                    <option value="CA">เพศเมีย</option>
+                                        <option selected>กรุณาเลือก</option>
+                                        <option value="US">เพศผู้ </option>
+                                        <option value="CA">เพศเมีย</option>
                                     </select>
-                                </div>                                      
-                            </div>  
-                            
+                                </div>                                     
+                            </div>   
+                                
                             <div class="relative max-w-sm mt-2">
                             <label for="email" class="block ml-2 text-sm font-medium text-gray-900 ">วันเกิด :</label>
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -83,9 +83,9 @@
                             </div>
                         </div>
                     </div>
-
+                        <!-- เพิ่มรูปภาพแมว -->
                     <div class="grid grid-cols-3 p-4">
-                        <div class="border border-blue-700">
+                        <div>
                             <p class="text-lg">รูปโปรไฟล์แมว</p>
                             <p class="text-gray-500 text-sm font-light">กรุณาเพิ่มโปรไฟล์แมวของแมวคุณ</p>
                             <P class="text-gray-500 text-sm font-light"> รูปภาพนี้จะถูกนำไปใช้เป็นโปรไฟล์แมวของคุณ</P>
@@ -98,19 +98,18 @@
                                 </label>
                         </div>
 
-                        <div class="border col-span-2 w-full">
+                        <div class="border col-span-2 w-full rounded-xl">
                             <div class="flex bg-grey-lighter">
-                                <div class="border border-rose-400 w-full">
-                                <div class="col-span-2 relative border-dashed border-2 border-grey-500 w-full bg-white rounded-xl p-3">
-                               <p class="text-gray-500 text-center">ไม่พบรูปภาพ</p>
-                            
-                        </div>
-                    </div>
+                                <div class=" w-full">
+                                    <div class="col-span-2 relative border-dashed border-2 border-grey-500 w-full bg-white rounded-xl p-3">
+                                        <p class="text-gray-500 text-center">ไม่พบรูปภาพ</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <div class="grid grid-cols-3 p-4">
-                        <div class="border border-blue-700">
+                        <div>
                             <p class="text-lg">เอกสารแมว</p>
                             <p class="text-gray-500 text-sm font-light">กรุณาเพิ่มเอกสารที่เกี่ยวข้องกับแมวของคุณรวมถึงรายละเอียดการฉีดวัคซีน</p>
                             <label class="mt-7 w-40 flex flex-col items-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-black">
@@ -122,28 +121,30 @@
                                 </label>
                         </div>
 
-                        <div class="border col-span-2 w-full">
+                        <div class="border col-span-2 w-full rounded-xl">
                             <div class="flex bg-grey-lighter">
-                                <div class="border border-rose-400 w-full">
-                                <div class="col-span-2 relative border-dashed border-2 border-grey-500 w-full bg-white rounded-xl p-3">
-                               <p class="text-gray-500 text-center">ไม่พบรูปภาพ</p>
-                            
+                                <div class=" w-full">
+                                    <div class="col-span-2 relative border-dashed border-2 border-grey-500 w-full bg-white rounded-xl p-3">
+                                        <p class="text-gray-500 text-center">ไม่พบรูปภาพ</p>                           
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                    </div>
-                <!-- body -->
                 </div>
             </div>
+
+
+        <!-- END MODAL CONTENT -->
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                     $(document).ready(function() {
                         $('#btn-profile-cat').on('click', function() {
-                            $('#modal-Profile-cat').removeClass('hidden');
+                            console.log('test');
+                            $('#modal-add-cat').removeClass('hidden');
                         });
                         $('#details-close').on('click', function() {
-                            $('#modal-Profile-cat').addClass('hidden');
+                            $('#modal-add-cat').addClass('hidden');
                         });           
                     });
                 </script>

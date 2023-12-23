@@ -18,8 +18,13 @@ Route::get('/', function () {
 });
 Route::get('/home', "AuthController@Home")->Name('Home');
 Route::get('/login', "AuthController@login")->Name('login');
+
 Route::get('/register', "AuthController@register")->Name('register');
-Route::post('/register/store', "AuthController@RegisterStore")->Name('RegisterStore');
+Route::post('/register/store', "AuthController@SubmitRegister")->Name('SubmitRegister');
+Route::post('/login/verify', "AuthController@LoginVerify")->Name('LoginVerify');
+Route::get('/logout', "AuthController@Logout")->Name('Logout');
+
 Route::get('/room', "AuthController@room")->Name('room');
 Route::get('/payment', "AuthController@payment")->Name('payment');
 Route::get('/cat', "AuthController@cat")->Name('cat');
+Route::get('/shower', "AuthController@shower")->Name('shower');

@@ -440,7 +440,8 @@
                                                  <button id="btn-details-pay-room" class="ml-auto mr-5 mt-2 mb-2 rounded-lg px-4  bg-red-500 hover:bg-red-700 duration-300 text-white">ชำระเงิน</button>
                                             </div>
                                      </div>                                
-                                </div> 
+                                </div>
+                                 <!-- end -->
                                                                
                             <!-- start grid3 -->
                                     <div class = "border rounded-lg shadow-xl " >
@@ -478,6 +479,7 @@
                                             <button class="ml-auto mr-5 mt-2 mb-2 rounded-lg px-4 py-2 bg-blue-600 hover:bg-[2344B8] duration-300 text-white">แก้ไข</button>
                                         </div>
                                     </div>
+                             <!-- end -->
                         </div>    
                     </div>               
                 </div>
@@ -682,7 +684,7 @@
                 </div>
                 <!-- END MODAL CONTENT2 -->
 
-                <!-- แสกนชำระเงิน2 -->
+                <!-- แสกนชำระเงิน -->
                 <div id="modal-pay-room2" class="modal hidden fixed z-[120] flex my-auto top-0 w-[100%] h-[100%] overflow-auto  ">
                     <!-- START MODEL CONTENT -->
                     <div  class="modal-content bg-gray-300 m-auto p-[10px] rounded-md drop-shadow-xl w-[50%] max-md:w-[100%] ">
@@ -715,12 +717,7 @@
                         </div>
                     </div>
                 </div>
-
-               
-               
-               
-               
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+           <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                     $(document).ready(function() {
                         $('#btn-details-room').on('click', function() {
