@@ -58,273 +58,49 @@
 
        <!-- ห้องแมว -->
        <div class=" flex grid grid-cols-5  gap-2 mt-3 px max-lg:grid max-lg:grid-cols-2 max-md:grid-col-1 px-[6em]">
-                 <!-- ห้องJuno1 -->
-                 <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room1.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class="grid grid-cols-2 flex">
-                            <span class= "text-center uppercase">Juno Room</span>
-                            <p  class="text-green-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet text-sm text-center"></i> ว่าง
-                            </p>
-                        </div>
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p  class=""> จำนวนแมว : 1ตัว</p>
-                            <p  class="underline ml-auto mr-0">฿300 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em] ">
-                             <button id="btn-details-room" type="button" class="w-full text-amber-600 border border-[C09369] rounded-full py-1 hover:bg-[C09369] duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- pluto2-->
-                <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room2pluto.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class="grid grid-cols-2 flex">
-                            <span class= "text-center uppercase">PLUTO ROOM </span>
-                            <p  class="text-red-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet text-sm text-center"></i> ไม่ว่าง
-                            </p>
-                        </div>
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1-2ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿500 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button id="btn-clik-roompluto" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-                   <!-- Mercury room3  -->  
-                   <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room3mercury.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class=" inline-flex  gap-[3em] ">
-                            <span class= "uppercase ">MERCURY ROOM </span>
-                            <span  class="text-red-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet"></i> ไม่ว่าง
-                            </span>
-                        </div>
-                        
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1-3ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿600 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-               
-                <!--Saturn room4-->
-                <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room4SATURN.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class=" inline-flex  gap-[5em]  w-full">
-                            <span class= "uppercase ">SATURN ROOM </span>
-                            <span  class="text-green-700 ml-auto mr-0">
-                                ว่าง
-                            </span>
-                        </div>
-                        
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1-4ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿700 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-
-                   <!-- Venus room5 -->
-                   <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room5venus.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class=" inline-flex  gap-[5em]  w-full">
-                            <span class= "uppercase ">VENUS ROOM </span>
-                            <p  class="text-green-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet"></i> ว่าง
-                            </p>
-                            
-                        </div>
-                        
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1-4ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿700 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Planet6 -->
-                 <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room6planet.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class=" inline-flex  gap-[3em] w-full">
-                            <span class= "uppercase ">PLANET ROOM </span>
-                            <span  class="text-green-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet"></i> ว่าง
-                            </span>
-                        </div>
-                        
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿300 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-
-               <!-- Mars7-->
-                <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl "> 
-                        <div class="relative">
-                            <img src="{{ URL('/picture/'.'room7mars.png') }}"class="w-[30em] h-[10em] my-auto ">
-                            <div class="absolute top-1 left-1 px-2 ">
-                                <i class="fi fi-rs-heart  text-white text-2xl "></i>
+                  <!-- ห้องJuno1 -->
+                  @if(sizeof($room))
+                    @foreach($room as $room)
+                        <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
+                            <div class="relative">
+                                <img src="{{ URL('/uploads/' . $room->room_pic) }}"class="w-full h-[20em] my-auto ">
+                                <div class="absolute top-1 left-1 px-2 ">
+                                    <i class="fi fi-rs-heart  text-white text-2xl "></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                            <div class=" inline-flex  gap-[5em] w-full">
-                                <span class= "uppercase ">MARS ROOM </span>
-                                <span  class="text-green-700 ml-auto mr-0">
-                                <i class="fi fi-ss-bullet"></i> ว่าง
-                                </span>
-                            </div>
-                            
-                            <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                                <p class="">จำนวนแมว : 1-2ตัว</p>                          
-                                <p  class="underline ml-auto mr-0">฿500 /คืน</p>
-                            </div>
-                            <div class = "mt-[1em]">
-                                <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                            </div>
-                        </div>
-                    </div>
-                
-                 <!-- Jupiter8  -->
-                 <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room8jupiter.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class=" inline-flex  gap-[3em] w-full">
-                            <span class= "uppercase ">JUPITER ROOM </span>
-                            <span  class="text-red-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet"></i> ไม่ว่าง
-                            </span>
-                        </div>
-                        
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1-3ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿600 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Neptune 9-->
-                <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room9neptune.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class=" inline-flex  gap-[3em] w-full">
-                            <span class= "uppercase ">NEPTUNE ROOM </span>
-                            <span  class="text-green-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet"></i> ว่าง
-                            </span>
-                        </div>
-                        
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1-ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿700 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Uranus10 -->
-                <div class= "relative border border-gray-200 rounded-2xl shadow-xl duration-500 hover:scale-105 hover:shadow-xl ">
-                    <div class="relative">
-                        <img src="{{ URL('/picture/'.'room10uranus.png') }}"class="w-[30em] h-[10em] my-auto ">
-                        <div class="absolute top-1 left-1 px-2 ">
-                            <i class="fi fi-rs-heart  text-white text-2xl "></i>
-                        </div>
-                    </div>
-                    <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
-                        <div class=" inline-flex  gap-[3em] w-full">
-                            <span class= "uppercase ">URANUS ROOM </span>
-                            <span  class="text-green-700 ml-auto mr-0">
-                            <i class="fi fi-ss-bullet"></i> ว่าง
-                            </span>
-                        </div>
-                        
-                        <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
-                            <p class="">จำนวนแมว : 1-4ตัว</p>                          
-                            <p  class="underline ml-auto mr-0">฿700 /คืน</p>
-                        </div>
-                        <div class = "mt-[1em]">
-                            <button type="button" class="w-full text-amber-600 border border-amber-400 rounded-full py-1 hover:bg-amber-100 duration-300">จอง</button>
-                        </div>
-                    </div>
-                </div>
-    </div>
+                            <div class = "mt-[1em] flex-col space-y-1 px-3 mb-[0.7em]">
+                                <div class="grid grid-cols-2 flex">
+                                    <span class= "text-center uppercase">{{ $room->room_name }}</span>
+                                    <p  class="text-green-700 ml-auto mr-0">
+                                    <i class="fi fi-ss-bullet text-sm text-center"></i> ว่าง
+                                    </p>
+                                </div>
+                                <div class="font-light text-gray-500 grid grid-cols-2 flex text-sm">
+                                    <p  class=""> จำนวนแมว : {{ $room->room_cat }}</p>
+                                    <p  class="underline ml-auto mr-0">฿{{ $room->room_price }} /คืน</p>
+                                </div>
+                                <div class = "mt-[1em] ">
+                                    <button type="button" class="btn-details-room w-full text-amber-600 border border-[C09369] rounded-full py-1 hover:bg-[C09369] duration-300"
+                                    data-room_id="{{ $room->room_id }}"  data-room_detail="{{ $room->room_detail }}" data-room_price="{{ $room->room_price }}" data-room_size="{{ $room->room_size }}" data-room_hight="{{ $room->room_hight }}" 
+                                    data-room_cat="{{ $room->room_cat }}" data-room_pic="{{ URL('/uploads/' . $room->room_pic) }}">จองห้อง</button>
+                                </div>
+                                
+                            </div>   
+                        </div> 
+                    @endforeach
+                    
+                 @endif 
+        </div>
 
                 <!-- start modal1 -->
                 <div id="modal-details-room" class="modal hidden fixed z-[100] flex my-auto left-0 top-0 w-[100%] h-[100%] overflow-auto  ">
                     <!-- START MODEL CONTENT -->
                     <div class="modal-content bg-white m-auto p-[10px] rounded-md drop-shadow-xl w-[90%] max-md:w-[100%]">
                         <div class="flex items-center">
-                            <p class="text-[20px] font-bold w-full ml-4 text-center">รายละเอียดการจอง</p>
+                            <p class="text-[20px] font-bold w-full ml-4 text-center">แก้ไขรายละเอียดห้อง</p>
                             <span id="details-close" class="text-gray-500 text-[30px] font-medium absolute top-0 right-0 mr-4 hover:text-indigo-600 cursor-pointer">&times;</span>
                         </div>
+                        
                         <hr class="mt-4">
                         <!-- body -->
                         <div class="mt-4 grid grid-cols-2 px-[5em] gap-4 ">
@@ -381,12 +157,9 @@
                                            <img src="{{ URL('/picture/'.'map.png') }}" alt="" class="w-full h-full object-cover my-auto" alt="logo"/>
                                        </div>
                                        <div class= "flex-col w-full col-span-2 h-[10em] max-lg:overflow-hidden">
-                                           <span class="  left-0">
-                                                สถานที่
-                                                Space Cat Hotel
-                                                หมู่บ้านภูริรังสิต คลอง5 เลขที่ 59/46 ตำบลคลองห้า                                                                                               
-                                                อำเภอคลองหลวง ปทุมธานี 12120
-                                                
+                                       
+                                           <span id="room_detail" class="  left-0">
+                                                -
                                             </span> 
          
                                        </div>           
@@ -396,55 +169,67 @@
 
                             <!-- start grid2 -->
                                 <div class = "  border rounded-lg shadow-xl " >
-
-                                    <div class="ml-[5em] flex col-span-4 gap-10 mt-2">
-                                        <img src="{{ URL('/picture/'.'selectroom.png') }}" alt="" class="w-[10em] h-[8em]" alt="logo"/>
+                                
+                                    <div class="ml-[5em] flex col-span-4 gap-10 mt-2 mb-2">
+                                        <img id="room_pic" src=" " alt="" class="w-[10em] h-[8em]" alt="logo"/>
                                         <div class="whitespace-nowrap flex-col  h-fit ">
                                             <p class="whitespace-nowrap" >JUNO ROOM</p>
                                             <div class=" border border-gray-400 mt-2 rounded-xl flex font-light items-center justify-center w-fit">
                                                 <div class="px-4 flex">
                                                     <img src="{{ URL('/picture/'.'cat1.png') }}" alt="" class="w-[25px] h-[25px] mb-[3px] mt-[3px] " alt="logo"/>
-                                                    <p>1 สูงสุด</p>
+                                                    <p class="mt-1" id="room_cat"></p>
                                                 </div>
                                             </div>
                                             <div class="flex gap-2">
                                                 <div class="border border-gray-400  mt-2 rounded-xl flex font-light">
                                                     <div class="items-center px-8 flex gap-2 py-[4px]">
                                                         <img src="{{ URL('/picture/'.'frame.png') }}" alt="" class=" w-[20px] h-[20px] mb-[3px] mt-[3px] " alt="logo"/>
-                                                        <p class=" ">70x120 cm</p>
+                                                        <p class=" " id="room_size"></p>cm.
                                                     </div>              
                                                 </div>
                                                 <div class="border border-gray-400  mt-2 rounded-xl flex font-light mr-2 ">
                                                     <div class="items-center px-8 flex gap-2 py-[4px]">
                                                         <img src="{{ URL('/picture/'.'arrow.png') }}" alt="" class=" w-[20px] h-[20px] mb-[3px] mt-[3px] " alt="logo"/>
-                                                        <p class=" ">130 cm</p>
+                                                        <p class=" " id="room_hight"></p>cm.
                                                     </div>              
                                                 </div>
                                             </div>
                                         </div>                                      
                                     </div> 
-                                    <div class="grid mt-3 h-[10em] bg-gray-200 rounded-lg">
-                                        <div class="col-span-2 ml-10 mt-4">
-                                            <p class="text-lg">รายละเอียดราคา</p>
-                                            <div class="flex font-light  text-sm ">
-                                                <p>ราคามาตรฐาน (300 x 1วัน)</p>
-                                                <p class="ml-auto mr-[5em]">300 บาท</p>
-                                            </div>                                          
+                                       
+
+                                    <div class="grid grid-cols-2 bg-gray-200 rounded-lg">
+                                        <div class="p-2">
+                                            <h1>รายละเอียดราคา</h1>
+                                            <p>ราคามาตรฐาน <span id="room_price"></span> x 1 วัน</p>
+                                        </div>
+
+                                        <div class="p-2 inline-flex ml-auto mr-0 mt-auto mb-0">
+                                            <p id="room_price"></p><span class="ml-2">บาท</span>
                                         </div>
                                         <p class=" border-t-2 border-gray-300 w-full col-span-3 "></p>
-                                        <div class="flex  ml-10 border">
-                                                <p>ราคามาตรฐาน (300 x 1วัน)</p>
-                                            </div>    
-                                                <p class="ml-auto mr-[4em] mt-1.8">300 บาท</p>
-                                            <div class="flex">
-                                                 <button id="btn-details-pay-room" class="ml-auto mr-5 mt-2 mb-2 rounded-lg px-4  bg-red-500 hover:bg-red-700 duration-300 text-white">ชำระเงิน</button>
+
+                                        <div class="p-2 flex ">
+                                            <p>ราคามาตรฐาน <span id="room_price"></span> x 1 วัน</p>
+                                            
+                                        </div>
+                                            <div class="p-2 inline-flex ml-auto mr-0 mb-0 ">
+                                                <span id="room_price"></span><span class="ml-2">บาท</span>
                                             </div>
-                                     </div>                                
+                                        <div class="p-2 flex items-center ml-auto mr-0 mt-[5em]">
+                                            <button href="#!" class="relative inline-block text-lg group ">
+                                                <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
+                                                <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
+                                                <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-blue-800 group-hover:-rotate-180 ease"></span>
+                                                    <span class="relative">ชำระเงิน</span>
+                                                    </span>
+                                                    <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
+                                            </button>  
+                                        </div>
+                                    </div>
                                 </div>
-                                 <!-- end -->
-                                                               
-                            <!-- start grid3 -->
-                                <div class = "border rounded-lg shadow-xl " >
+                                  <!-- start grid3 -->
+                                  <div class = "border rounded-lg shadow-xl " >
                                     <input id="editprofile_id" class="hidden" value="{{ $room->user_id}}"> 
                                         <div class="flex mx-5 mt-3">
                                         <img src="{{ URL('/picture/'.'detail.png') }}" alt="" class="ml-2" alt="logo"/>
@@ -487,12 +272,16 @@
                                         <div class="flex">
                                             <a href="profile" class="ml-auto mr-5 mt-2 mb-2 rounded-lg px-4 py-2 bg-blue-600 hover:bg-[2344B8] duration-300 text-white">แก้ไข</a>
                                         </div>
+                                       
                                     </div>
                              <!-- end -->
-                        </div>    
+                             
+                             
+                        </div>                          
                     </div>               
                 </div>
-                <!-- END MODAL CONTENT -->
+                
+             
 
                 <!-- แสกนชำระเงิน1 -->
                 <div id="modal-pay-room" class="modal hidden fixed z-[120] flex my-auto top-0 w-[100%] h-[100%] overflow-auto  ">
@@ -729,6 +518,18 @@
            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                     $(document).ready(function() {
+                        $('.btn-details-room').on('click', function() {
+                            console.log($(this).data('room_detail'));
+                            $('.modal-content #room_detail').text($(this).data('room_detail'));
+                            $('.modal-content #room_price').text($(this).data('room_price'));
+                            $('.modal-content #room_size').text($(this).data('room_size'));
+                            $('.modal-content #room_hight').text($(this).data('room_hight'));
+                            $('.modal-content #room_cat').text($(this).data('room_cat'));
+                            $('.modal-content #room_pic').attr('src', $(this).data('room_pic'));
+
+                            $('#modal-details-room').removeClass('hidden');
+
+                        });
                         $('#btn-details-room').on('click', function() {
                             $('#modal-details-room').removeClass('hidden');
                         });
@@ -795,61 +596,160 @@
                         };
                     }
                     function fileHanddle_Single(src){
-                        $("#banner_image_preview_add").attr("src", src);
-
+                        $("#room_pic1").attr("src", src);
                         _image64_single = src;
                     }
                     // END GET SINGLE IMAGE BASE64
+                    function SubmitRoomEdit() {
+                fetch("{{ Route('SubmitRoomEdit') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-CSRF-Token": "{{ csrf_token() }}"
+                    },
+                    body:JSON.stringify(
+                        {
+                            room_name: document.getElementById("room_name").value,
+                            room_cat: document.getElementById("room_cat").value,
+                            room_size: document.getElementById("room_size").value,
+                            room_hight: document.getElementById("room_hight").value,
+                            room_price: document.getElementById("room_price").value,
+                            room_detail: document.getElementById("room_detail").value,
+                            image64: _image64_single
+                        }
+                    )
+                })
+                .then(async response => {
+                    const isJson = response.headers.get('content-type')?.includes('application/json');
+                    const data = isJson ? await response.json() : null; 
 
-                    function SubmitReserve() {
-                        fetch("{{ Route('SubmitReserve') }}", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                                "Accept": "application/json",
-                                "X-CSRF-Token": "{{ csrf_token() }}"
-                            },
-                            body:JSON.stringify(
-                                {
-                                    username: document.getElementById("username_register").value,
-                                    password: document.getElementById("password_register").value,
-                                    image64: _image64_single
-                                }
-                            )
+                    console.log(data);
+                    if(!response.ok){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'เพิ่มบัญชีไม่สำเร็จ!',
+                            html: `${data.status}`,
+                            confirmButtonText: 'ตกลง',
                         })
-                        .then(async response => {
-                            const isJson = response.headers.get('content-type')?.includes('application/json');
-                            const data = isJson ? await response.json() : null; 
 
-                            console.log(data);
-                            if(!response.ok){
-                                Swal.fire({
-                                    position: 'center',
-                                    icon: 'error',
-                                    title: 'เพิ่มบัญชีไม่สำเร็จ!',
-                                    html: `${data.status}`,
-                                    confirmButtonText: 'ตกลง',
-                                })
-
-                                const error = (data && data.errorMessage) || "{{trans('general.warning.system_failed')}}" + " (CODE:"+response.status+")";
-                                return Promise.reject(error);
-                            }
-
-                            Swal.fire({
-                                    position: 'center',
-                                    icon: 'success',
-                                    title: 'เพิ่มบัญชีสำเร็จ',
-                                    confirmButtonText: 'ตกลง',
-                                    timer: 1000,
-                                    timerProgressBar: true
-                            }).then((result) => {
-                                location.reload();
-                            })
-                        })
-                        .catch((er) => {
-                            console.log('Error' + er);
-                        });                    
+                        const error = (data && data.errorMessage) || "{{trans('general.warning.system_failed')}}" + " (CODE:"+response.status+")";
+                        return Promise.reject(error);
                     }
+
+                    Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'เพิ่มบัญชีสำเร็จ',
+                            confirmButtonText: 'ตกลง',
+                            timer: 1000,
+                            timerProgressBar: true
+                    }).then((result) => {
+                        location.reload();
+                    })
+                })
+                .catch((er) => {
+                    console.log('Error' + er);
+                });                    
+            }
+
+            function SubmitRoomDelete(room_id) {
+                fetch("{{ Route('SubmitRoomDelete') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-CSRF-Token": "{{ csrf_token() }}"
+                    },
+                    body:JSON.stringify(
+                        {
+                            room_id: room_id,
+                        }
+                    )
+                })
+                .then(async response => {
+                    const isJson = response.headers.get('content-type')?.includes('application/json');
+                    const data = isJson ? await response.json() : null; 
+
+                    console.log(data);
+                    if(!response.ok){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'ลบห้องไม่สำเร็จ!',
+                            html: `${data.status}`,
+                            confirmButtonText: 'ตกลง',
+                        })
+
+                        const error = (data && data.errorMessage) || "{{trans('general.warning.system_failed')}}" + " (CODE:"+response.status+")";
+                        return Promise.reject(error);
+                    }
+
+                    Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'ลบห้องสำเร็จ',
+                            confirmButtonText: 'ตกลง',
+                            timer: 1000,
+                            timerProgressBar: true
+                    }).then((result) => {
+                        location.reload();
+                    })
+                })
+                .catch((er) => {
+                    console.log('Error' + er);
+                });                    
+            }
+
+            const uploadInput = document.getElementById('room_pic');
+            const filenameLabel = document.getElementById('filename');
+            const imagePreview = document.getElementById('image-preview');
+
+            // Check if the event listener has been added before
+            let isEventListenerAdded = false;
+
+            uploadInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+
+                if (file) {
+                filenameLabel.textContent = file.name;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.innerHTML =
+                    `<img src="${e.target.result}" class="max-h-48 rounded-lg mx-auto" alt="Image preview" />`;
+                    imagePreview.classList.remove('border-dashed', 'border-2', 'border-gray-400');
+
+                    // Add event listener for image preview only once
+                    if (!isEventListenerAdded) {
+                    imagePreview.addEventListener('click', () => {
+                        uploadInput.click();
+                    });
+
+                    isEventListenerAdded = true;
+                    }
+                };
+                reader.readAsDataURL(file);
+                } else {
+                filenameLabel.textContent = '';
+                imagePreview.innerHTML =
+                    `<div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center text-gray-500">No image preview</div>`;
+                imagePreview.classList.add('border-dashed', 'border-2', 'border-gray-400');
+
+                // Remove the event listener when there's no image
+                imagePreview.removeEventListener('click', () => {
+                    uploadInput.click();
+                });
+
+                isEventListenerAdded = false;
+                }
+            });
+
+            uploadInput.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+
 
                 </script>
         <!-- END MODAL ADD ADDRESS -->   

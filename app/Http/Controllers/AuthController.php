@@ -27,6 +27,7 @@ class AuthController extends Controller
     }
     public function room() {
         $room = User::where('username', Session::get('username'))->first();
+        $room = room::All();
 
         return view('room', compact('room'));
        
