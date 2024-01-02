@@ -9,7 +9,7 @@
                         <span class="ml-1.5">กลับ</span>
                 </button>  
                 <div class= " flex mx-auto text-xl">
-                    <span>ประวัติการชำระเงิน</span>
+                    <span>เพิ่มแมวของคุณ</span>
                 </div>
             </div>
                    

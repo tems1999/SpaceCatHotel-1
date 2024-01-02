@@ -17,7 +17,7 @@
                 <a class="flex items-center space-x-3 rtl:space-x-reverse">               
                     <img src="{{ URL('/picture/'.'cat.png') }}"class="h-20" alt="Flowbite Logo" />
                     <div class=" text-center " >
-                        <p class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600">Space Cat Hotel</p>
+                        <p href="Home" class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600">Space Cat Hotel</p>
                         <p >space cat hotel</p>
                     </div>
                 </a>
@@ -28,15 +28,39 @@
                             <img src="https://t.ly/T5_fM" class="h-5" alt="Flowbite Logo" />
                             <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">อาบน้ำตัดขน</a>
                         </div>
-                        <a href="profile" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">ประวัติส่วนตัว</a>
-
                         @if(Session::get('authen')) 
-                            <li>
-                                <p class="">Welcome - {{ Session::get('firstname') }}</p>
-                            </li>
-                            <li>
-                                <a href="{{ Route('Logout') }}">Logout</a>
-                            </li>
+                        <div class="hidden w-full md:block md:w-auto pt-1" id="navbar-default">
+                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+                        <li>
+                            <div class= " flex items-center ">                             
+                                <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="text-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">เพิ่มเติม 
+                                <img src="{{ URL('/picture/'.'menu.png') }}"class="w-5 h-5 ">
+                                </button>
+
+                                <!-- Dropdown menu -->
+                                <div id="dropdownInformation" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[20em] h-[20em] dark:bg-gray-700 dark:divide-gray-600">
+                                    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                        <a href="profile" class="font-medium truncate flex items-center text-lg drop-shadow-md"><img src="{{ URL('/picture/'.'users.png') }}"class="mr-5 w-10 h-10 "> {{ Session::get('firstname')." ".Session::get('lastname') }}</a>
+                                        <p class="text-gray-500 text-center mt-[-10px]">{{ Session::get('username') }}</p>
+                                    </div>
+                                    <ul class="py-2 text-sm text-gray-500 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">รายละเอียดการจอง</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">รายงาน</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">โปรไฟล์ลูกค้า</a>
+                                    </li>
+                                    </ul>
+                                    <div class="py-2">
+                                    <a href="{{ Route('Logout') }}" class="block px-4 py-2 text-sm text-red-800 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">ออกจากระบบ</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                         </div>
                         @else
                             <li>
                                 <button id="btnLogin" type="button" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">เข้าสู่ระบบ</button>
@@ -187,6 +211,7 @@
         @yield('script')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
         <script>
             $(document).ready(function () {
                 // Modal Login
@@ -265,12 +290,16 @@
                     Swal.fire({
                             position: 'center',
                             icon: 'success',
-                            title: 'เข้าสู่ระบบสำเร็๗',
+                            title: 'เข้าสู่ระบบสำเร็จ',
                             confirmButtonText: 'ตกลง',
                             timer: 1000,
                             timerProgressBar: true
                     }).then((result) => {
-                        location.reload();
+                        if(data.role === 3) {
+                            location.href="{{ Route('adminhome') }}";
+                        } else {
+                            location.reload();
+                        }
                     })
                 })
                 .catch((er) => {
@@ -329,6 +358,8 @@
                     console.log('Error' + er);
                 });                    
             }
+           
+
         </script>
     </body>
 </html>

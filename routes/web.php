@@ -36,3 +36,7 @@ Route::get('/monthreport', "AuthController@monthreport")->Name('monthreport');
 Route::get('/yearreport', "AuthController@yearreport")->Name('yearreport');
 Route::post('/profile/store', "AuthController@SubmitProfileEdit")->Name('SubmitProfileEdit');
 Route::post('/profile', "AuthController@SubmitProfileEditPassword")->Name('SubmitProfileEditPassword');
+
+Route::get('/admineditroom', "AuthController@admineditroom")->Name('admineditroom');
+Route::post('/admineditroom/store', "AuthController@SubmitRoomEdit")->Name('SubmitRoomEdit');
+Route::post('/admineditroom/delete', "AuthController@SubmitRoomDelete")->Name('SubmitRoomDelete');

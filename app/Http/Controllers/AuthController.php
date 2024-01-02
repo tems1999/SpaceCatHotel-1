@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use DB;
 use App\Models\User;
+use App\Models\room;
 
 class AuthController extends Controller
 {
@@ -24,8 +26,10 @@ class AuthController extends Controller
         return view('register');
     }
     public function room() {
+        $room = User::where('username', Session::get('username'))->first();
 
-        return view('room');
+        return view('room', compact('room'));
+       
     }
     public function payment() {
 
@@ -69,6 +73,12 @@ class AuthController extends Controller
         $users = User::select('*')->get();
 
         return view('User', compact('User'));
+    }
+    public function admineditroom() {
+        $rooms = room::All();
+
+        return view('admineditroom', compact('rooms'));
+       
     }
 
     public function SubmitRegister(Request $request) {
@@ -232,4 +242,45 @@ class AuthController extends Controller
 
         return response()->json(200);
     }
+
+    public function SubmitRoomEdit(Request $request) {
+        $room_name = ($request->has('room_name')) ? trim($request->input('room_name')) : null;
+        $room_cat = ($request->has('room_cat')) ? trim($request->input('room_cat')) : null;
+        $room_size = ($request->has('room_size')) ? trim($request->input('room_size')) : null;
+        $room_hight = ($request->has('room_hight')) ? trim($request->input('room_hight')) : null;
+        $room_price = ($request->has('room_price')) ? trim($request->input('room_price')) : null;
+        $room_detail = ($request->has('room_detail')) ? trim($request->input('room_detail')) : null;
+        $image64 = ($request->has('image64')) ? trim($request->input('image64')) : null;
+        
+        if(!$image64) {
+            $status = 'กรุณาแนบรูป';
+            return response()->json(['status' => $status], 401);
+        }
+
+        @list($type, $file_data) = explode(';', $image64);
+        @list(, $file_data) = explode(',', $file_data); 
+        $imageName = Str::random(10).'.'.'png';   
+        file_put_contents(config('pathImage.uploads_path') . '/' . $imageName, base64_decode($file_data));
+        
+        $InsertRow = new room;
+        $InsertRow->room_name = $room_name;
+        $InsertRow->room_cat = $room_cat;
+        $InsertRow->room_size = $room_size;
+        $InsertRow->room_hight = $room_hight;
+        $InsertRow->room_price = $room_price;
+        $InsertRow->room_detail = $room_detail;
+        $InsertRow->room_pic = $imageName;
+        $InsertRow->save();
+           
+        return response()->json(200);
+    }
+
+    public function SubmitRoomDelete(Request $request) {
+        $room_id = ($request->has('room_id')) ? trim($request->input('room_id')) : null;
+
+        room::where('room_id', $room_id)->delete();
+
+        return response()->json(200);
+    }
+    
 }
