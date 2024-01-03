@@ -39,9 +39,9 @@ class AuthController extends Controller
         return view('payment');
     }
     public function cat() {
-        $cat = cat::All();
+        $cats = cat::All();
 
-        return view('cat' , compact('cat'));
+        return view('cat' , compact('cats'));
     }
     public function shower() {
 

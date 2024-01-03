@@ -1,8 +1,9 @@
 <title>Home | Puenmeaw</title>
-
 @extends('components/LayoutUser')
 
 @section('Content')
+
+
         <div id= "modal-Profile-cat" class="border border-gray-300 relative mt-4 flex items-center py-3">    
                 <button class="absolute border border-gray-400 flex w-fit mt-2 mb-2 rounded-lg px-2 py-1 ml-7 ">
                         <img src="{{ URL('/picture/'.'arrow-right.png') }}" alt="" class=" w-[20px] h-[20px] mb-[3px] mt-[3px] " alt="logo"/>      
@@ -10,24 +11,37 @@
                 </button>  
                 <div class= " flex mx-auto text-xl">
                     <span>เพิ่มแมวของคุณ</span>
+                    
+                </div>
+                <button id="btn-profile-cat" type="button"  class="text-lg w-[6em] mr-5 flex flex-col bg-gray-300 items-center px-2 py-2 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">เพิ่มแมว
+                    </button>
+            </div>             
+        </div> 
+        <div class=" flex grid grid-cols-5  gap-2 mt-[5em] px max-lg:grid max-lg:grid-cols-2 max-md:grid-col-1 px-[6em]">
+        @if(sizeof($cats))
+             @foreach($cats as $cat)
+                <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="flex justify-end px-4 pt-4">
+                         <button class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
+                        </button>
+                </div>
+                <div class="flex flex-col items-center pb-10">
+                    <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ URL('/uploads/' . $cat->cat_pic) }}" alt="Bonnie image"/>
+                    
+                    <h5 class="mt-[1em] mb-1 text-xl font-bold text-gray-900 dark:text-white">ชื่อ : {{ $cat->cat_name }}</h5>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">พันธุ์ : {{ $cat->cat_breed }} </span>   
+                    <span class="text-sm text-gray-500 dark:text-gray-400">น้ำหนัก : {{ $cat->cat_weight }} กิโลกรัม </span>   
+                    <div class="flex mt-4 md:mt-6">
+                        <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">แก้ไข</a>
+                        <a href="#" class="inline-flex items-center ml-5 px-4 py-2 text-sm font-medium text-center text-white bg-red-800 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">ลบ</a>
+                    </div>
                 </div>
             </div>
-                   
-        </div> 
-        <!-- add_cat -->
-            <div class=" items-center justify-center flex ">
-                <div class="mt-[8em] w-fit h-auto  bg-grey-lighter border-2 border-gray-300 border-dashed bg-gray-100 py-[2em] px-[10em] shadow-lg">
-                    <button id="btn-profile-cat" type="button"  class="w-64 flex flex-col items-center px-4 py-6 bg-gray-300 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
-                        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                        </svg>
-                        <span class=" mt-2 text-base leading-normal">เพิ่มแมวของคุณ </span>
-                    </button>
-                </div>     
-            </div>
-
+            @endforeach
+        @endif
+        </div>
             <!-- start_modal_addcat -->
-            <div id="modal-add-cat" class="modal hidden1 fixed z-[100] flex my-auto left-0 top-0 w-[100%] h-[100%] overflow-auto  ">
+            <div id="modal-add-cat" class="modal hidden fixed z-[100] flex my-auto left-0 top-0 w-[100%] h-[100%] overflow-auto  ">
                 <div class="modal-content bg-white m-auto p-[10px] rounded-md drop-shadow-xl w-[65%] max-md:w-[100%] gap-2">
                     <span id="details-close" class="text-gray-500 text-[30px] font-medium absolute top-0 right-0 mr-4 hover:text-indigo-600 cursor-pointer">&times;</span>   
                     <!-- รายละเอียดแมว -->
@@ -66,8 +80,8 @@
                                     <label for="countries" class="block ml-3 text-sm font-medium text-gray-900 ">เพศ</label>
                                     <select id="cat_gender" class="bg-gray border bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 shadow-md">
                                         <option selected>กรุณาเลือก</option>
-                                        <option value="US">เพศผู้ </option>
-                                        <option value="CA">เพศเมีย</option>
+                                        <option value="เพศผู้">เพศผู้ </option>
+                                        <option value="เพศเมีย">เพศเมีย</option>
                                     </select>
                                 </div>                                     
                             </div>   
@@ -97,8 +111,9 @@
                                     <input onchange={fileChosen_Cat(event)} type='file' class="hidden" />
                                 </label>
                         </div>
-
-                        <img id="pic_cat" class="outline-none w-[100px] h-auto">   
+                    <div class="col-span-2 relative border 300 w-1/2 bg-white shadow-lg rounded-xl p-3">
+                        <img id="pic_cat" class="outline-none w-[100px] h-auto rounded-xl">   
+                    </div>
                     </div>
                     <div class="grid grid-cols-3 p-4">
                         <div>
@@ -112,7 +127,9 @@
                                     <input onchange={fileChosen_Doc(event)} type='file' class="hidden" />
                                 </label>
                         </div>
-                        <img id="pic_doc" class="items-center w-[100px] h-auto">
+                        <div class="col-span-2 relative border 300 w-1/2 bg-white shadow-lg rounded-xl p-3">
+                            <img id="pic_doc" class="items-center w-[100px] h-auto">
+                        </div>
 
                        
                 </div>
