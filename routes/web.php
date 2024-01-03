@@ -40,3 +40,5 @@ Route::post('/profile', "AuthController@SubmitProfileEditPassword")->Name('Submi
 Route::get('/admineditroom', "AuthController@admineditroom")->Name('admineditroom');
 Route::post('/admineditroom/store', "AuthController@SubmitRoomEdit")->Name('SubmitRoomEdit');
 Route::post('/admineditroom/delete', "AuthController@SubmitRoomDelete")->Name('SubmitRoomDelete');
+Route::post('/cat/store', "AuthController@SubmitCat")->Name('SubmitCat');
+

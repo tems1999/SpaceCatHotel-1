@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use DB;
 use App\Models\User;
 use App\Models\room;
+use App\Models\cat;
+
 
 class AuthController extends Controller
 {
@@ -37,8 +39,9 @@ class AuthController extends Controller
         return view('payment');
     }
     public function cat() {
+        $cat = cat::All();
 
-        return view('cat');
+        return view('cat' , compact('cat'));
     }
     public function shower() {
 
@@ -281,6 +284,50 @@ class AuthController extends Controller
 
         room::where('room_id', $room_id)->delete();
 
+        return response()->json(200);
+    }
+    public function SubmitCat(Request $request) {
+        $cat_name = ($request->has('cat_name')) ? trim($request->input('cat_name')) : null;
+        $cat_breed = ($request->has('cat_breed')) ? trim($request->input('cat_breed')) : null;
+        $cat_weight = ($request->has('cat_weight')) ? trim($request->input('cat_weight')) : null;
+        $cat_gender = ($request->has('cat_gender')) ? trim($request->input('cat_gender')) : null;
+        $cat_date = ($request->has('cat_date')) ? trim($request->input('cat_date')) : null;
+        $image64_cat = ($request->has('image64_cat')) ? trim($request->input('image64_cat')) : null;
+        $image64_doc = ($request->has('image64_doc')) ? trim($request->input('image64_doc')) : null;
+        
+        if(!$cat_name) {
+            $status = 'กรุณากรอกชื่อแมว';
+            return response()->json(['status' => $status], 401);
+        }
+        if(strlen($cat_breed) < 1 || strlen($cat_weight) < 1) {
+            $status = 'กรุณากรอกพันธุ์แมว';
+            return response()->json(['status' => $status], 401);
+        }
+
+        if(!$image64_cat && !$image64_doc) {
+            $status = 'กรุณาแนบรูปภาพ';
+            return response()->json(['status' => $status], 401);
+        } else {
+            @list($type, $file_data) = explode(';', $image64_cat);
+            @list(, $file_data) = explode(',', $file_data); 
+            $imageNameCat = Str::random(10).'.'.'png';   
+            file_put_contents(config('pathImage.uploads_path') . '/' . $imageNameCat, base64_decode($file_data));
+
+            @list($type, $file_data) = explode(';', $image64_cat);
+            @list(, $file_data) = explode(',', $file_data); 
+            $imageNameDoc = Str::random(10).'.'.'png';   
+            file_put_contents(config('pathImage.uploads_path') . '/' . $imageNameDoc, base64_decode($file_data));
+        }
+   
+            $InsertRow = new cat;
+            $InsertRow->cat_name = $cat_name;
+            $InsertRow->cat_breed = $cat_breed;
+            $InsertRow->cat_weight = $cat_weight;
+            $InsertRow->cat_gender = $cat_gender;
+            $InsertRow->cat_date = $cat_date;
+            $InsertRow->cat_pic = $imageNameCat;
+            $InsertRow->cat_document = $imageNameDoc;
+            $InsertRow->save();
         return response()->json(200);
     }
     

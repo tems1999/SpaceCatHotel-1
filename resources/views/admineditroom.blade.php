@@ -45,7 +45,7 @@
                                 <div class = "mt-[1em] ">
                                     <button type="button" class="btn-details-room w-full text-amber-600 border border-[C09369] rounded-full py-1 hover:bg-[C09369] duration-300"
                                     data-room_id="{{ $room->room_id }}"  data-room_detail="{{ $room->room_detail }}" data-room_price="{{ $room->room_price }}" data-room_size="{{ $room->room_size }}" data-room_hight="{{ $room->room_hight }}" 
-                                    data-room_cat="{{ $room->room_cat }}" data-room_pic="{{ URL('/uploads/' . $room->room_pic) }}">รายละเอียดห้อง</button>
+                                    data-room_cat="{{ $room->room_cat }}" data-room_pic="{{ URL('/uploads/' . $room->room_pic) }}" data-room_name="{{ $room->room_name }}">รายละเอียดห้อง</button>
                                 </div>
                                 <div class = "mt-[1em] ">
                                     <button type="button" class="btn-room-delete w-full text-amber-600 border border-[C09369] rounded-full py-1 hover:bg-[C09369] duration-300"
@@ -74,18 +74,18 @@
                                                 <section class="container w-full mx-auto items-center">
                                                     <div class="flex">
                                                         <div class="px-4 py-6">
-                                                        <div id="image-preview" class="max-w-sm p-6 mb-4 bg-gray-100 border-dashed border-2 border-gray-400 rounded-lg items-center mx-auto text-center cursor-pointer">
-                                                            <input onchange={fileChosen_Single(event)} id="room_pic" type="file" class="hidden" accept="image/*" />
-                                                            <label for="room_pic" class="cursor-pointer">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-700 mx-auto mb-4">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                                                            </svg>
-                                                            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-700">Upload picture</h5>
-                                                            <p class="font-normal text-sm text-gray-400 md:px-6">Choose photo size should be less than <b class="text-gray-600">2mb</b></p>
-                                                            <p class="font-normal text-sm text-gray-400 md:px-6">and should be in <b class="text-gray-600">JPG, PNG, or GIF</b> format.</p>
-                                                            <span id="filename" class="text-gray-500 bg-gray-200 z-50"></span>
-                                                            </label>
-                                                        </div>
+                                                            <div id="image-preview" class="max-w-sm p-6 mb-4 bg-gray-100 border-dashed border-2 border-gray-400 rounded-lg items-center mx-auto text-center cursor-pointer">
+                                                                <input onchange={fileChosen_Single(event)} id="room_pic" type="file" class="hidden" accept="image/*" />
+                                                                <label for="room_pic" class="cursor-pointer">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-700 mx-auto mb-4">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                                                                </svg>
+                                                                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-700">Upload picture</h5>
+                                                                <p class="font-normal text-sm text-gray-400 md:px-6">Choose photo size should be less than <b class="text-gray-600">2mb</b></p>
+                                                                <p class="font-normal text-sm text-gray-400 md:px-6">and should be in <b class="text-gray-600">JPG, PNG, or GIF</b> format.</p>
+                                                                <span id="filename" class="text-gray-500 bg-gray-200 z-50"></span>
+                                                                </label>
+                                                            </div>
                                                         <div class="flex items-center justify-center">
                                                         
                                                         </div>
@@ -200,7 +200,7 @@
                                     <div class="ml-[5em] flex col-span-4 gap-10 mt-2">
                                         <img id="room_pic" src=" " alt="" class="w-[10em] h-[8em]" alt="logo"/>
                                         <div class="whitespace-nowrap flex-col  h-fit ">
-                                            <p class="whitespace-nowrap" >JUNO ROOM</p>
+                                            <p class="whitespace-nowrap" id="room_name" ></p>
                                             <div class=" border border-gray-400 mt-2 rounded-xl flex font-light items-center justify-center w-fit">
                                                 <div class="px-4 flex">
                                                     <img src="{{ URL('/picture/'.'cat1.png') }}" alt="" class="w-[25px] h-[25px] mb-[3px] mt-[3px] " alt="logo"/>
@@ -278,83 +278,6 @@
                         </div>
                     </div>
                 </div>
-
-                 <!-- start modal2 -->
-                 <div id="modal-details-roompluto" class="modal hidden fixed z-[100] flex my-auto left-0 top-0 w-[100%] h-[100%] overflow-auto  ">
-                    <!-- START MODEL CONTENT -->
-                    <div class="modal-content bg-white m-auto p-[10px] rounded-md drop-shadow-xl w-[90%] max-md:w-[100%]">
-                        <div class="flex items-center">
-                            <p class="text-[20px] font-bold w-full ml-4 text-center">รายละเอียดการจอง</p>
-                            <span id="details-close" class="text-gray-500 text-[30px] font-medium absolute top-0 right-0 mr-4 hover:text-indigo-600 cursor-pointer">&times;</span>
-                        </div>
-                        <hr class="mt-4">
-                        <!-- body -->
-                        <div class="mt-4 grid grid-cols-2 px-[5em] gap-4 ">
-                            <!-- start grid1-->
-                            <div class = "grid grid-cols-2 border rounded-lg shadow-xl ">
-                                <div class="col-span-2 grid grid-cols-2 border-b-2 border-gray-200">
-                                    <div class="grid grid-cols-3 mx-1 my-2 border-r-2 border-gray-200">
-                                       <div class="relative bg-white min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] p-1 overflow-hidden">
-                                           <img src="{{ URL('/picture/'.'checkin.png') }}" alt="" class="w-full h-full object-cover my-auto" alt="logo"/>
-                                       </div>
-                                       <div class= "col-span-2 flex-col whitespace-nowrap">
-                                           <span>เช็คอิน: 6 ธ.ค.</span>
-                                           <p class="text-gray-300">จาก 10:00</p>   
-                                       </div>           
-                                   </div>
-    
-                                    <!-- checkout -->
-                                    <div class="grid grid-cols-3 mx-1 my-2 ">
-                                        <div class="relative bg-white min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] p-1 overflow-hidden">
-                                           <img src="{{ URL('/picture/'.'checkout.png') }}" alt="" class="w-full h-full object-cover my-auto" alt="logo"/>
-                                       </div>
-                                       <div class= "col-span-2 flex-col whitespace-nowrap">
-                                           <span>เช็คเอาท์: 6 ธ.ค.</span>
-                                           <p class="text-gray-300">จาก 10:00</p>   
-                                       </div> 
-                                    </div>
-                                </div>
-
-                                <div class="col-span-2 grid grid-cols-2">
-                                    <!-- checkin -->
-                                   <div class="grid grid-cols-3 mx-1 my-2 border-r-2 border-gray-200">
-                                       <div class="relative bg-white min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] p-1 overflow-hidden">
-                                           <img src="{{ URL('/picture/'.'calendar.png') }}" alt="" class="w-full h-full object-cover my-auto" alt="logo"/>
-                                       </div>
-                                       <div class= "flex-col">
-                                           <span class="whitespace-nowrap">จำนวนวันทั้งหมด :</span>
-                                           <p>1</p>   
-                                       </div>           
-                                   </div>
-
-                                   <div class="grid grid-cols-3 mx-1 my-2">
-                                       <div class="relative bg-white min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] p-1 overflow-hidden">
-                                           <img src="{{ URL('/picture/'.'catnumber.png') }}" alt="" class="w-full h-full object-cover my-auto" alt="logo"/>
-                                       </div>
-                                       <div class= "flex-col">
-                                           <span class="whitespace-nowrap">จำนวนแมว :</span>
-                                           <p>1</p>   
-                                       </div>           
-                                   </div>
-                                </div>
-                                
-                                    <div class="grid grid-cols-6 col-span-2  my-2 border-t-2">
-                                       <div class="relative bg-white min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] p-1 overflow-hidden">
-                                           <img src="{{ URL('/picture/'.'map.png') }}" alt="" class="w-full h-full object-cover my-auto" alt="logo"/>
-                                       </div>
-                                       <div class= "flex-col w-full col-span-2 h-[10em] max-lg:overflow-hidden">
-                                           <span class="  left-0">
-                                                สถานที่
-                                                Space Cat Hotel
-                                                หมู่บ้านภูริรังสิต คลอง5 เลขที่ 59/46 ตำบลคลองห้า                                                                                               
-                                                อำเภอคลองหลวง ปทุมธานี 12120
-                                                
-                                            </span> 
-         
-                                       </div>           
-                                    </div>
-                            </div>
-                            <!-- end -->
 
                             <!-- start grid2 -->
                                 <div class = "  border rounded-lg shadow-xl " >
@@ -483,7 +406,7 @@
                     
                     $(document).ready(function() {
                         $('.btn-details-room').on('click', function() {
-                            console.log($(this).data('room_detail'));
+                            $('.modal-content #room_name').text($(this).data('room_name'));
                             $('.modal-content #room_detail').text($(this).data('room_detail'));
                             $('.modal-content #room_price').val($(this).data('room_price'));
                             $('.modal-content #room_size').text($(this).data('room_size'));

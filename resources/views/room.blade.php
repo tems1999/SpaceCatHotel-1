@@ -82,7 +82,7 @@
                                 <div class = "mt-[1em] ">
                                     <button type="button" class="btn-details-room w-full text-amber-600 border border-[C09369] rounded-full py-1 hover:bg-[C09369] duration-300"
                                     data-room_id="{{ $room->room_id }}"  data-room_detail="{{ $room->room_detail }}" data-room_price="{{ $room->room_price }}" data-room_size="{{ $room->room_size }}" data-room_hight="{{ $room->room_hight }}" 
-                                    data-room_cat="{{ $room->room_cat }}" data-room_pic="{{ URL('/uploads/' . $room->room_pic) }}">จองห้อง</button>
+                                    data-room_cat="{{ $room->room_cat }}" data-room_pic="{{ URL('/uploads/' . $room->room_pic) }}" data-room_name="{{ $room->room_name }}">จองห้อง</button>
                                 </div>
                                 
                             </div>   
@@ -173,7 +173,7 @@
                                     <div class="ml-[5em] flex col-span-4 gap-10 mt-2 mb-2">
                                         <img id="room_pic" src=" " alt="" class="w-[10em] h-[8em]" alt="logo"/>
                                         <div class="whitespace-nowrap flex-col  h-fit ">
-                                            <p class="whitespace-nowrap" >JUNO ROOM</p>
+                                            <p class="whitespace-nowrap" id="room_name" ></p>
                                             <div class=" border border-gray-400 mt-2 rounded-xl flex font-light items-center justify-center w-fit">
                                                 <div class="px-4 flex">
                                                     <img src="{{ URL('/picture/'.'cat1.png') }}" alt="" class="w-[25px] h-[25px] mb-[3px] mt-[3px] " alt="logo"/>
@@ -519,7 +519,7 @@
                 <script>
                     $(document).ready(function() {
                         $('.btn-details-room').on('click', function() {
-                            console.log($(this).data('room_detail'));
+                            $('.modal-content #room_name').text($(this).data('room_name'));
                             $('.modal-content #room_detail').text($(this).data('room_detail'));
                             $('.modal-content #room_price').text($(this).data('room_price'));
                             $('.modal-content #room_size').text($(this).data('room_size'));
