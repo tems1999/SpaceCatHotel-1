@@ -84,6 +84,11 @@ class AuthController extends Controller
         return view('admineditroom', compact('rooms'));
        
     }
+    public function catedit() {
+        $catedit = cat::where('cat_name', Session::get('cat_name'))->first();;
+
+        return view('catedit', compact('catedit'));
+    }
 
 
     public function SubmitRegister(Request $request) {
@@ -165,14 +170,67 @@ class AuthController extends Controller
     }
 
     public function SubmitCatEdit(Request $request) {
-        $id = ($request->has('cat_id')) ? trim($request->input('cat_id')) : null;
+        $cat_id = ($request->has('cat_id')) ? trim($request->input('cat_id')) : null;
         $cat_name = ($request->has('cat_name')) ? trim($request->input('cat_name')) : null;
+        $cat_breed = ($request->has('cat_breed')) ? trim($request->input('cat_breed')) : null;
+        $cat_weight = ($request->has('cat_weight')) ? trim($request->input('cat_weight')) : null;
+        $cat_gender = ($request->has('cat_gender')) ? trim($request->input('cat_gender')) : null;
+        $cat_date = ($request->has('cat_date')) ? trim($request->input('cat_date')) : null;
+        $image64_cat = ($request->has('image64_cat')) ? trim($request->input('image64_cat')) : null;
+        $image64_doc = ($request->has('image64_doc')) ? trim($request->input('image64_doc')) : null;
+        print_r($image64_cat);
+        if($image64_cat) {
+            @list($type, $file_data) = explode(';', $image64_cat);
+            @list(, $file_data) = explode(',', $file_data); 
+            $imageName = Str::random(10).'.'.'png';   
+            file_put_contents(config('pathImage.uploads_path') . '/' . $imageName, base64_decode($file_data));
 
-                cat::where('cat_id', $id)
+            cat::where('cat_id',$cat_id)
+                ->update([
+                'cat_name' => $cat_name,
+                'cat_breed' => $cat_breed,
+                'cat_weight' => $cat_weight,
+                'cat_gender' => $cat_gender,
+                'cat_date' => $cat_date,
+                'cat_pic' => $imageName,
+                'updated_at' => now()
+            ]);
+            session::put('cat_pic', $imageName);
+            
+        if($image64_doc) {
+            @list($type, $file_data) = explode(';', $image64_doc);
+            @list(, $file_data) = explode(',', $file_data); 
+            $imageNameDoc = Str::random(10).'.'.'png';   
+            file_put_contents(config('pathImage.uploads_path') . '/' . $imageNameDoc, base64_decode($file_data));
+    
+            cat::where('cat_id',$cat_id)
+                ->update([
+                'cat_name' => $cat_name,
+                'cat_breed' => $cat_breed,
+                'cat_weight' => $cat_weight,
+                'cat_gender' => $cat_gender,
+                'cat_date' => $cat_date,
+                'cat_document' => $imageNameDoc,
+                'updated_at' => now()
+                ]);
+                session::put('cat_document', $imageNameDoc);
+            
+        }
+        
+        } else {
+            cat::where('cat_id', $cat_id)
                     ->update([
                     'cat_name' => $cat_name,
+                    'cat_breed' => $cat_breed,
+                    'cat_weight' => $cat_weight,
+                    'cat_gender' => $cat_gender,
+                    'cat_date' => $cat_date,
                     'updated_at' => now()
                 ]);
+           
+        }
+
+                
         return response()->json(200);
     }
     

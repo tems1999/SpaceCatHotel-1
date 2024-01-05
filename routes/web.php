@@ -42,7 +42,9 @@ Route::post('/admineditroom/store', "AuthController@SubmitRoomEdit")->Name('Subm
 Route::post('/admineditroom/delete', "AuthController@SubmitRoomDelete")->Name('SubmitRoomDelete');
 Route::post('/cat/store', "AuthController@SubmitCat")->Name('SubmitCat');
 Route::post('/cat/delete', "AuthController@SubmitCatDelete")->Name('SubmitCatDelete');
-Route::get('/cate/store', "AuthController@SubmitCatEdit")->Name('SubmitCatEdit');
+Route::post('/cat', "AuthController@SubmitCatEdit")->Name('SubmitCatEdit');
+Route::get('/catedit', "AuthController@catedit")->Name('catedit');
+
 
 
 

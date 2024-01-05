@@ -32,7 +32,7 @@
                     <span class="text-sm text-gray-500 dark:text-gray-400">พันธุ์ : {{ $cat->cat_breed }} </span>   
                     <span class="text-sm text-gray-500 dark:text-gray-400">น้ำหนัก : {{ $cat->cat_weight }} กิโลกรัม </span>   
                     <div class="flex mt-4 md:mt-6">
-                        <button data-cat_id="{{ $cat->cat_id }}" data-cat_name="{{ $cat->cat_name }}" class="btn-edit-cat inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">แก้ไข</button>
+                        <button data-cat_id="{{ $cat->cat_id }}" class="btn-edit-cat inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">แก้ไข</button>
                         <button data-cat_id="{{ $cat->cat_id }}" data-cat_name="{{ $cat->cat_name }}" class="btn-cat-delete inline-flex items-center ml-5 px-4 py-2 text-sm font-medium text-center text-white bg-red-800 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">ลบ</button>
                        
                     </div>
@@ -145,6 +145,8 @@
                         <div class="w-fit ">
                             <p class="text-lg">รายละเอียดแมว</p>
                             <p class="text-gray-500 text-sm font-light">กรุณาเพิ่มรายระเอียดของแมวคุณ</p>
+                            <input id="cat_id" class="hidden" value="{{ $cat->cat_id}}"> 
+
                         </div>
 
                         <!-- input_history_cat -->
@@ -153,13 +155,13 @@
                                 <div>
                                     <label for="email" class="text-sm font-medium text-gray-900 ">ชื่อแมว :</label>
                                     <div class="p-2 rounded-xl border flex w-full bg-gray-100 shadow-md">
-                                        <input id="cat_name" class="ml-2 font-light bg-gray-100"  type="name" name="name" placeholder="กรอกชื่อแมว">   
+                                        <input id="cat_name1" class="ml-2 font-light bg-gray-100"  type="name" name="name" placeholder="กรอกชื่อแมว">   
                                     </div>       
                                 </div> 
                                 <div>
                                     <label for="email" class="ml-3 ml-2 text-sm font-medium text-gray-900 ">พันธ์แมว :</label>
                                     <div class="p-2 rounded-xl border flex w-full bg-gray-100 shadow-md">
-                                        <input id="cat_breed" class="ml-2 font-light bg-gray-100"  type="name" name="name" placeholder="กรอกพันธ์แมว">   
+                                        <input id="cat_breed1" class="ml-2 font-light bg-gray-100"  type="name" name="name" placeholder="กรอกพันธ์แมว">   
                                     </div>       
                                 </div>     
                                     
@@ -169,12 +171,12 @@
                                 <div class="">
                                     <label for="email" class="ml-3 block ml-2 text-sm font-medium text-gray-900 ">น้ำหนักแมว :</label>
                                     <div class="p-2 rounded-xl border flex w-full bg-gray-100 shadow-md">
-                                        <input id="cat_weight" class="ml-2 font-light bg-gray-100  "  type="name" name="name" placeholder="น้ำหนักแมวแมว">   
+                                        <input id="cat_weight1" class="ml-2 font-light bg-gray-100  "  type="name" name="name" placeholder="น้ำหนักแมวแมว">   
                                     </div>       
                                 </div>     
                                 <div class="ml-[5.5em]">
                                     <label for="countries" class="block ml-3 text-sm font-medium text-gray-900 ">เพศ</label>
-                                    <select id="cat_gender" class="bg-gray border bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 shadow-md">
+                                    <select id="cat_gender1" class="bg-gray border bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 shadow-md">
                                         <option selected>กรุณาเลือก</option>
                                         <option value="เพศผู้">เพศผู้ </option>
                                         <option value="เพศเมีย">เพศเมีย</option>
@@ -189,7 +191,7 @@
                                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                     </svg>
                                 </div>
-                                <input id="cat_date" datepicker datepicker-buttons type="date" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2 shadow-lg mb-3 " placeholder="Select date">
+                                <input id="cat_date1" datepicker datepicker-buttons type="date" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2 shadow-lg mb-3 " placeholder="Select date">
                             </div>
                         </div>
                     </div>
@@ -208,7 +210,7 @@
                                 </label>
                         </div>
                     <div class="col-span-2 relative border 300 w-1/2 bg-white shadow-lg rounded-xl p-3">
-                        <img id="pic_cat" class="outline-none w-[100px] h-auto rounded-xl">   
+                        <img id="pic_cat1" class="outline-none w-[100px] h-auto rounded-xl">   
                     </div>
                     </div>
                     <div class="grid grid-cols-3 p-4">
@@ -224,7 +226,7 @@
                                 </label>
                         </div>
                         <div class="col-span-2 relative border 300 w-1/2 bg-white shadow-lg rounded-xl p-3">
-                            <img id="pic_doc" class="items-center w-[100px] h-auto">
+                            <img id="pic_doc1" class="items-center w-[100px] h-auto">
                         </div>
 
                        
@@ -237,13 +239,8 @@
                 <script>
                     $(document).ready(function() {
                         $('.btn-edit-cat').on('click', function() {
+                            $('.modal-content #cat_id').val($(this).data('cat_id'));
                             $('.modal-content #cat_name').val($(this).data('cat_name'));
-                            $('.modal-content #room_detail').text($(this).data('room_detail'));
-                            $('.modal-content #room_price').val($(this).data('room_price'));
-                            $('.modal-content #room_size').text($(this).data('room_size'));
-                            $('.modal-content #room_hight').text($(this).data('room_hight'));
-                            $('.modal-content #room_cat').text($(this).data('room_cat'));
-                            $('.modal-content #room_pic').attr('src', $(this).data('room_pic'));
 
                             $('#modal-edit-cat').removeClass('hidden');
 
@@ -322,6 +319,8 @@
             }
             function fileHanddle_Cat(src){
                 $("#pic_cat").attr("src", src);
+                $("#pic_cat1").attr("src", src);
+
                 _image64_cat = src;
             }
 
@@ -370,9 +369,13 @@
             }
             function fileHanddle_Doc(src){
                 $("#pic_doc").attr("src", src);
+                $("#pic_doc1").attr("src", src);
+
                 _image64_doc = src;
             }
+
             function SubmitCatEdit() {
+                console.log('value = ' + document.getElementById("cat_name1").value);
                 fetch("{{ Route('SubmitCatEdit') }}", {
                     method: "POST",
                     headers: {
@@ -383,7 +386,17 @@
                     body:JSON.stringify(
                         {
                             cat_id: document.getElementById("cat_id").value,
-                            cat_name: document.getElementById("cat_name").value,
+                            cat_name: document.getElementById("cat_name1").value,
+                            cat_breed: document.getElementById("cat_breed1").value,
+                            cat_weight: document.getElementById("cat_weight1").value,
+                            cat_gender: document.getElementById("cat_gender1").value,
+                            cat_date: document.getElementById("cat_date1").value,
+                            image64_cat: _image64_cat,
+                            image64_doc: _image64_doc
+                           
+
+
+                            
                         }
                     )
                 })
